@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Singleton</title>
+</head>
+<body>
+	<script>
+		function log (content) {
+			console.log(content);
+		}
+
+		function Person() {
+
+			var instance;
+
+			Person = function() {
+				return instance;
+			}
+
+			Person.prototype = this;
+
+			instance = new Person();
+
+			instance.constructor = Person;
+
+			instance.name = 'funny';
+			instance.age  = 20;
+
+			return instance; 
+
+		}
+
+		Person.prototype.job = 'develop';
+
+		var p1 = new Person();
+		p1.name = 'test';
+
+		Person.prototype.area = 'beijing';
+
+		var p2 = new Person();
+		log(' ******* first way ****** ');
+		log(p1 === p2);
+		log(p1.name);
+		log(p2.name);
+		log(p1.job);
+		log(p2.job);
+		log(p2.area);
+		log(p2.constructor === Person);
+
+
+
+		var Car;
+
+		(function() {
+			var instance;
+
+			Car = function Car() {
+				if(instance) {
+					return instance;
+				}
+
+				instance = this;
+
+				this.name = 'Benz';
+				this.price = '$1';
+
+			};
+
+		})();
+
+		log(' ***** second way **** ');
+
+		Car.prototype.color = 'black';
+		var c1 = new Car();
+		Car.prototype.country = 'USA';
+		var c2 = new Car();
+
+		log(c1 === c2);
+		log(c2.price);
+		log(c1.country);
+		log(c2.color);
+		log(c2.constructor === Car);
+
+	</script>
+</body>
+</html>
