@@ -10,6 +10,7 @@
 			console.log(content);
 		}
 
+		log(' ******* first way ****** ');
 		function Person() {
 
 			var instance;
@@ -39,7 +40,6 @@
 		Person.prototype.area = 'beijing';
 
 		var p2 = new Person();
-		log(' ******* first way ****** ');
 		log(p1 === p2);
 		log(p1.name);
 		log(p2.name);
@@ -48,7 +48,7 @@
 		log(p2.area);
 		log(p2.constructor === Person);
 
-
+		log(' ***** second way **** ');
 
 		var Car;
 
@@ -69,8 +69,6 @@
 
 		})();
 
-		log(' ***** second way **** ');
-
 		Car.prototype.color = 'black';
 		var c1 = new Car();
 		Car.prototype.country = 'USA';
@@ -81,6 +79,9 @@
 		log(c1.country);
 		log(c2.color);
 		log(c2.constructor === Car);
+
+		log(' ***** third way ***** ');
+
 
 	</script>
 </body>
