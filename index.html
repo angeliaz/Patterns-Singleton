@@ -22,9 +22,7 @@
 			Person.prototype = this;
 
 			instance = new Person();
-
 			instance.constructor = Person;
-
 			instance.name = 'funny';
 			instance.age  = 20;
 
@@ -48,6 +46,7 @@
 		log(p2.area);
 		log(p2.constructor === Person);
 
+		
 		log(' ***** second way **** ');
 
 		var Car;
